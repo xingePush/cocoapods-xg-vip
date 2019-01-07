@@ -17,7 +17,7 @@ VERSION 1.0.0.5
 配置 `Info.plist` 文件，配置文件名必须是 `Info.plist` ，且其中键值对和数据类型必须一致
 
 参照：
-![xg_vip_info](https://github.com/xingePush/cocoapods-xg-vip/tree/1.0.0.5/resources/xg_vip_info.png)
+![xg_vip_info](https://github.com/xingePush/cocoapods-xg-vip/blob/1.0.0.5/resources/xg_vip_info.png)
 
 
 VERSION 1.0.0.4
