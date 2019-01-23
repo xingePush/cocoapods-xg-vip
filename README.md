@@ -9,9 +9,39 @@ Pods file中添加
 pod 'QQ_XGVIPPush'
 ```
 
+
+
+VERSION 1.0.0.6
+-------------------------------------------
+
+*[+]支持私有云部署服务器配置
+*[+]修复内存泄露
+
+私有化部署需要引用 `XGPushPrivate.h`, 并要求在 信鸽 `SDK` 启动之前调用接口 `- (void)configureHost:(NSString *)host port:(NSInteger)port;` 来设置服务器配置信息
+
+代码示例：
+
+```objective-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	// 配置私有云服务器地址
+	[[XGPush defaultManager] configureHost:@"yourcompany.domain.com" port:8080];
+	
+    [[XGPush defaultManager] setEnableDebug:YES];
+    [[XGPush defaultManager] startXGWithAppID:2200257934 appKey:@"IF7E9U92S3ZC" delegate:self];
+    // 清除角标
+    if ([XGPush defaultManager].xgApplicationBadgeNumber > 0) {
+        [[XGPush defaultManager] setXgApplicationBadgeNumber:0];
+    }
+	[[XGPush defaultManager] reportXGNotificationInfo:launchOptions];
+	return YES;
+}
+```
+
+
+
 VERSION 1.0.0.5
 -------------------------------------------
-*[+]支持独立私有化部署
+*[+]支持公有云部署服务器配置
 
 具体操作步骤：
 配置 `Info.plist` 文件，配置文件名必须是 `Info.plist` ，且其中键值对和数据类型必须一致
